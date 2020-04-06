@@ -5,4 +5,4 @@ Bude konflikt
 pri mergeovaní.
 Treba ho rieši.
 Rozhodnú.
-!!! Skúška pridania textu v mergeTestujem !!!
+Vymazal som toto
