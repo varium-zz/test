@@ -1,0 +1,7 @@
+Súbor na ktorom 
+sa v dvoch vetvách 
+vykonajú zmeny.
+Bude konflikt
+pri mergeovaní.
+Treba ho rieši.
+Rozhodnú.
