@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mozaika mačích plemien</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      padding: 10px;
+    }
+    .cat {
+      cursor: pointer;
+    }
+    .cat img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+    #detail {
+      padding: 20px;
+      border-top: 1px solid #ccc;
+      display: none;
+    }
+    #detail img {
+      max-width: 300px;
+      display: block;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="grid"></div>
+  <div id="detail">
+    <h2 id="detail-name"></h2>
+    <img id="detail-img" alt="" />
+    <p id="detail-desc"></p>
+  </div>
+  <script>
+    const breeds = [
+      {
+        name: "Siamská mačka",
+        img: "https://placekitten.com/200/200",
+        desc: "Siamská mačka je známa svojím štíhlym telom a hlasným prejavom."
+      },
+      {
+        name: "Perzská mačka",
+        img: "https://placekitten.com/201/200",
+        desc: "Perzská mačka má dlhú srsť a pokojný, priateľský temperament."
+      },
+      {
+        name: "Mainská mývalia mačka",
+        img: "https://placekitten.com/202/200",
+        desc: "Veľká a robustná mačka s hustou srsťou, známa svojou priateľskou povahou."
+      },
+      {
+        name: "Bengálska mačka",
+        img: "https://placekitten.com/203/200",
+        desc: "Bengálske mačky majú škvrnitú srsť pripomínajúcu leopardiu."
+      },
+      {
+        name: "Ragdoll",
+        img: "https://placekitten.com/200/201",
+        desc: "Ragdoll je veľká mačka, ktorá sa pri zdvihnutí uvoľní ako látková bábika."
+      },
+      {
+        name: "Sfinga",
+        img: "https://placekitten.com/201/201",
+        desc: "Sfingy sú bezsrsté mačky známe svojou vráskavou kožou."
+      },
+      {
+        name: "Britská krátkosrstá",
+        img: "https://placekitten.com/202/201",
+        desc: "Britská krátkosrstá mačka má hustú srsť a typickú guľatú hlavu."
+      },
+      {
+        name: "Ruská modrá",
+        img: "https://placekitten.com/203/201",
+        desc: "Ruské modré mačky sú elegantné so strieborno-modrou srsťou."
+      },
+      {
+        name: "Škótska klapouchá",
+        img: "https://placekitten.com/200/202",
+        desc: "Škótske klapouché mačky majú uši sklopené dopredu."
+      },
+      {
+        name: "Abesínska mačka",
+        img: "https://placekitten.com/201/202",
+        desc: "Abesínska mačka je aktívna a zvedavá s tikovanou srsťou."
+      },
+      {
+        name: "Orientálna krátkosrstá",
+        img: "https://placekitten.com/202/202",
+        desc: "Orientálne krátkosrsté mačky sú štíhle a spoločenské."
+      },
+      {
+        name: "Americká krátkosrstá",
+        img: "https://placekitten.com/203/202",
+        desc: "Americká krátkosrstá je robustná mačka s priateľskou povahou."
+      }
+    ];
+
+    const grid = document.getElementById("grid");
+
+    breeds.forEach(breed => {
+      const div = document.createElement("div");
+      div.className = "cat";
+      div.innerHTML = `<img src="${breed.img}" alt="${breed.name}">`;
+      div.addEventListener("click", () => showDetail(breed));
+      grid.appendChild(div);
+    });
+
+    function showDetail(breed) {
+      document.getElementById("detail-name").textContent = breed.name;
+      const img = document.getElementById("detail-img");
+      img.src = breed.img;
+      img.alt = breed.name;
+      document.getElementById("detail-desc").textContent = breed.desc;
+      document.getElementById("detail").style.display = "block";
+    }
+  </script>
+</body>
+</html>
